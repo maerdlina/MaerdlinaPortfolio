@@ -1,12 +1,12 @@
 export const projects = [
   {
     id: 1,
-    title: "ObsydianSync - Сервис синхронизации заметок",
+    type: "obsydian",
     description: "Real-time система синхронизации для совместной работы с заметками. Разработана с нуля серверная часть и клиентские модули.",
     technologies: ["Java", "Spring Boot", "WebSocket", "PostgreSQL", "Docker", "JPA"],
     githubUrl: "https://github.com/maerdlina/ObsidianSync",
     // liveUrl: "https://obsydiansync.com",
-    image: "https://via.placeholder.com/400x250/2c5282/white?text=ObsydianSync",
+    youtubeUrl: "https://www.youtube.com/embed/1tYYSNAkiyE", // ДЛЯ ВИДЕО
     features: [
       "Двусторонняя синхронизация в реальном времени",
       "WebSocket + STOMP для мгновенных обновлений",
@@ -16,12 +16,12 @@ export const projects = [
   },
   {
     id: 2,
-    title: "PlantCare - Мониторинг здоровья растений",
+    type: "plant",
     description: "Приложение для ухода за комнатными растениями с интеллектуальными напоминаниями и отслеживанием состояния.",
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker", "HTML/CSS", "JavaScript"],
     githubUrl: "https://github.com/maerdlina/PlantCare",
     // liveUrl: "https://plantcare-app.com",
-    image: "https://via.placeholder.com/400x250/38a169/white?text=PlantCare",
+    image: "https://via.placeholder.com/400x250/38a169/ffffff", // БЕЗ ТЕКСТА
     features: [
       "Система уведомлений о поливе и уходе",
       "База данных растений с рекомендациями",
@@ -29,14 +29,14 @@ export const projects = [
       "Мобильный-фриендли интерфейс"
     ]
   },
-    {
+  {
     id: 3,
-    title: "FileDistributor - Распределенная файловая система",
+    type: "file",
     description: "Высокопроизводительная система распределенного хранения и обмена файлами с надежной архитектурой.",
     technologies: ["Java 21", "PostgreSQL", "H2", "Microservices", "Distributed Systems"],
     githubUrl: "https://github.com/maerdlina/FileDistributor",
     liveUrl: "https://filedistributor.com",
-    image: "https://via.placeholder.com/400x250/805ad5/white?text=FileDistributor",
+    image: "https://via.placeholder.com/400x250/805ad5/ffffff", // БЕЗ ТЕКСТА
     features: [
       "Распределенное хранение и репликация",
       "Высокая доступность и отказоустойчивость",
@@ -46,12 +46,12 @@ export const projects = [
   },
   {
     id: 4,
-    title: "RunningApp - Трекер беговых тренировок",
+    type: "running",
     description: "3D-приложение для анализа беговых тренировок с продвинутой статистикой и визуализацией маршрутов.",
     technologies: ["Java", "Spring Boot", "Godot Engine", "JPA", "PostgreSQL"],
     githubUrl: "https://github.com/maerdlina/RunningApp",
     // liveUrl: "https://runningapp-3d.com",
-    image: "https://via.placeholder.com/400x250/3182ce/white?text=RunningApp",
+    image: "https://via.placeholder.com/400x250/3182ce/ffffff", // БЕЗ ТЕКСТА
     features: [
       "3D визуализация маршрутов и рельефа",
       "Анализ темпа и прогресса тренировок",

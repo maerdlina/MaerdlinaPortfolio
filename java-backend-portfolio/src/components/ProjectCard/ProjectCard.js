@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FiGithub, FiExternalLink, FiCode, FiServer, FiDatabase, FiCloud, FiCpu } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiCloud, FiDatabase, FiCpu, FiServer, FiPlay } from 'react-icons/fi';
 
 const Card = styled.div`
   background: ${props => props.theme.cardBackground};
@@ -9,6 +9,8 @@ const Card = styled.div`
   padding: 1.8rem;
   transition: all 0.3s ease;
   box-shadow: ${props => props.theme.shadow};
+  display: flex;
+  flex-direction: column;
   
   &:hover {
     transform: translateY(-5px);
@@ -16,13 +18,8 @@ const Card = styled.div`
   }
 `;
 
-const ProjectImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid ${props => props.theme.cardBorder};
-  margin-bottom: 1.2rem;
+const ProjectHeader = styled.div`
+  margin-bottom: 1.5rem;
 `;
 
 const ProjectTitle = styled.h3`
@@ -81,6 +78,76 @@ const TechTag = styled.span`
   gap: 0.3rem;
 `;
 
+const MediaContainer = styled.div`
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid ${props => props.theme.cardBorder};
+`;
+
+const YouTubeVideo = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid ${props => props.theme.cardBorder};
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+`;
+
+const VideoPlaceholder = styled.div`
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid ${props => props.theme.cardBorder};
+  cursor: pointer;
+  
+  &:hover::before {
+    transform: scale(1.1);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 2px, transparent 2px),
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    transition: transform 0.3s ease;
+  }
+`;
+
+const PlayButton = styled.div`
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 3rem;
+`;
+
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
@@ -110,50 +177,74 @@ const Button = styled.a`
   }
 `;
 
-// Иконки для разных типов проектов
-const projectIcons = {
-  sync: <FiCloud />,
-  plant: <FiDatabase />,
-  running: <FiCpu />,
-  file: <FiServer />
+// Названия и иконки для проектов
+const projectTitles = {
+  obsydian: { name: "ObsydianSync", icon: <FiCloud /> },
+  plant: { name: "PlantCare", icon: <FiDatabase /> },
+  running: { name: "RunningApp", icon: <FiCpu /> },
+  file: { name: "FileDistributor", icon: <FiServer /> }
 };
 
 const ProjectCard = ({ project }) => {
-  // Выбираем иконку в зависимости от типа проекта
-  const getProjectIcon = () => {
-    if (project.title.includes('Obsydian')) return projectIcons.sync;
-    if (project.title.includes('Plant')) return projectIcons.plant;
-    if (project.title.includes('Running')) return projectIcons.running;
-    if (project.title.includes('File')) return projectIcons.file;
-    return projectIcons.sync;
+  const projectInfo = projectTitles[project.type] || { name: "Проект", icon: <FiCloud /> };
+
+  const renderMedia = () => {
+    if (project.youtubeUrl) {
+      return (
+        <YouTubeVideo>
+          <iframe
+            src={project.youtubeUrl}
+            title={`YouTube video for ${projectInfo.name}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </YouTubeVideo>
+      );
+    } else if (project.videoUrl) {
+      return (
+        <VideoPlaceholder onClick={() => window.open(project.videoUrl, '_blank')}>
+          <PlayButton>
+            <FiPlay />
+          </PlayButton>
+        </VideoPlaceholder>
+      );
+    } else if (project.image) {
+      return <ProjectImage src={project.image} alt={projectInfo.name} />;
+    }
+    return null;
   };
 
   return (
     <Card>
-      <ProjectImage src={project.image} alt={project.title} />
-      <ProjectTitle>
-        {getProjectIcon()}
-        {project.title}
-      </ProjectTitle>
-      <ProjectDescription>{project.description}</ProjectDescription>
-      
-      {project.features && (
-        <FeaturesList>
-          {project.features.map((feature, index) => (
-            <FeatureItem key={index}>
-              {feature}
-            </FeatureItem>
+      <ProjectHeader>
+        <ProjectTitle>
+          {projectInfo.icon}
+          {projectInfo.name}
+        </ProjectTitle>
+        <ProjectDescription>{project.description}</ProjectDescription>
+        
+        {project.features && (
+          <FeaturesList>
+            {project.features.map((feature, index) => (
+              <FeatureItem key={index}>
+                {feature}
+              </FeatureItem>
+            ))}
+          </FeaturesList>
+        )}
+        
+        <TechList>
+          {project.technologies.map((tech, index) => (
+            <TechTag key={index}>
+              {tech}
+            </TechTag>
           ))}
-        </FeaturesList>
-      )}
-      
-      <TechList>
-        {project.technologies.map((tech, index) => (
-          <TechTag key={index}>
-            {tech}
-          </TechTag>
-        ))}
-      </TechList>
+        </TechList>
+      </ProjectHeader>
+
+      <MediaContainer>
+        {renderMedia()}
+      </MediaContainer>
       
       <ButtonGroup>
         <Button href={project.githubUrl} target="_blank" rel="noopener noreferrer">
