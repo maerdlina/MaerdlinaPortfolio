@@ -1,23 +1,31 @@
 export const lightTheme = {
-  background: '#f0f0f0',
-  backgroundPattern: 'linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%, #e6e6e6), linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%, #e6e6e6)',
-  text: '#333',
-  primary: '#0066cc',
-  secondary: '#666',
+  background: '#f8f9fa',
+  text: '#2d3748',
+  primary: '#2c5282',
+  secondary: '#4a5568',
   accent: '#c16bffff',
-  cardBackground: 'rgba(255, 255, 255, 0.9)',
-  cardBorder: '2px solid #333',
-  shadow: '8px 8px 0 rgba(0, 0, 0, 0.2)'
+  cardBackground: 'rgba(255, 255, 255, 0.95)',
+  cardBorder: '1px solid #e2e8f0',
+  shadow: '6px 6px 0 rgba(0, 0, 0, 0.1)',
+  accentShadow: '4px 4px 0 #2c5282',
+  profileBorder: '3px solid #2c5282',
+  geometricPrimary: 'rgba(31, 95, 223, 0.95)',
+  geometricSecondary: 'rgba(170, 244, 118, 0.95)',
+  geometricAccent: 'rgba(231, 115, 83, 0.95)'
 };
 
 export const darkTheme = {
-  background: '#121212',
-  backgroundPattern: 'linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a), linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a)',
-  text: '#e0e0e0',
-  primary: '#4dabf7',
-  secondary: '#adb5bd',
+  background: '#1a202c',
+  text: '#e2e8f0',
+  primary: '#63b3ed',
+  secondary: '#a0aec0',
   accent: '#c16bffff',
-  cardBackground: 'rgba(30, 30, 30, 0.9)',
-  cardBorder: '2px solid #4dabf7',
-  shadow: '8px 8px 0 rgba(0, 0, 0, 0.5)'
+  cardBackground: 'rgba(26, 32, 44, 0.95)',
+  cardBorder: '1px solid #4a5568',
+  shadow: '6px 6px 0 rgba(0, 0, 0, 0.3)',
+  accentShadow: '4px 4px 0 #63b3ed',
+  profileBorder: '3px solid #63b3ed',
+  geometricPrimary: 'rgba(31, 95, 223, 0.95)',
+  geometricSecondary: 'rgba(170, 244, 118, 0.95)',
+  geometricAccent: 'rgba(231, 115, 83, 0.95)'
 };

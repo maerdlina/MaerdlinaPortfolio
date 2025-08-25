@@ -51,11 +51,11 @@ const NavLink = styled.a`
 const Header = ({ toggleTheme, theme }) => {
   return (
     <HeaderContainer>
-      <Logo>JavaDev</Logo>
+      <Logo>Maerdlina</Logo>
       <Nav>
-        <NavLink href="#projects">Проекты</NavLink>
+        {/* <NavLink href="#projects">Проекты</NavLink>
         <NavLink href="#about">Обо мне</NavLink>
-        <NavLink href="#contact">Контакты</NavLink>
+        <NavLink href="#contact">Контакты</NavLink> */}
         <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
       </Nav>
     </HeaderContainer>

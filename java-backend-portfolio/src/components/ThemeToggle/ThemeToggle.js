@@ -22,7 +22,11 @@ const ToggleButton = styled.button`
 const ThemeToggle = ({ toggleTheme, theme }) => {
   return (
     <ToggleButton onClick={toggleTheme} aria-label="Toggle theme">
-      {theme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
+      {theme === 'light' ? (
+        <FiMoon size={20} color="black" /> // Черный цвет для иконки луны в светлой теме
+      ) : (
+        <FiSun size={20} color="white" /> // Белый цвет для иконки солнца в темной теме
+      )}
     </ToggleButton>
   );
 };

@@ -5,6 +5,7 @@ import ProjectCard from './components/ProjectCard/ProjectCard';
 import Footer from './components/Footer/Footer';
 import { projects } from './data/projects';
 import { lightTheme, darkTheme } from './styles/themes';
+import GeometricBackground from './components/GeometricBackground/GeometricBackground';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -187,6 +188,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
+      <GeometricBackground />
       <Container>
         <Header toggleTheme={toggleTheme} theme={theme} />
         <Main>
@@ -207,19 +209,22 @@ function App() {
               <Title>Java Backend Developer</Title>
               <Subtitle>Создаю надежные и масштабируемые серверные решения</Subtitle>
               <Description>
-                Специализируюсь на разработке высоконагруженных приложений с использованием 
+                {/* Специализируюсь на разработке высоконагруженных приложений с использованием 
                 Spring Boot, микросервисной архитектуры и современных DevOps практик.
                 Имею опыт работы с распределенными системами, real-time коммуникацией
-                и сложными алгоритмами синхронизации данных.
+                и сложными алгоритмами синхронизации данных. */}
               </Description>
               <TechStack>
                 <TechBadge>Java</TechBadge>
                 <TechBadge>Spring Boot</TechBadge>
-                <TechBadge>Microservices</TechBadge>
+                <TechBadge>SQL</TechBadge>
+                <TechBadge>MySQL</TechBadge>
+                {/* <TechBadge>Microservices</TechBadge> */}
                 <TechBadge>PostgreSQL</TechBadge>
                 <TechBadge>Docker</TechBadge>
-                <TechBadge>WebSocket</TechBadge>
-                <TechBadge>Distributed Systems</TechBadge>
+                <TechBadge>Kafka</TechBadge>
+                {/* <TechBadge>WebSocket</TechBadge> */}
+                {/* <TechBadge>Distributed Systems</TechBadge> */}
               </TechStack>
             </HeroContent>
           </HeroSection>

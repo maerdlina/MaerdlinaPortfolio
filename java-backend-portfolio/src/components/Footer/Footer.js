@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiGithub, FiMail } from 'react-icons/fi';
 
 const FooterContainer = styled.footer`
   background: ${props => props.theme.cardBackground};
@@ -35,13 +35,10 @@ const Footer = () => {
   return (
     <FooterContainer>
       <SocialLinks>
-        <SocialLink href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <SocialLink href="https://github.com/maerdlina" target="_blank" rel="noopener noreferrer">
           <FiGithub size={24} />
         </SocialLink>
-        <SocialLink href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-          <FiLinkedin size={24} />
-        </SocialLink>
-        <SocialLink href="mailto:your.email@example.com">
+        <SocialLink href="mailto:maerdlina@gmail.com">
           <FiMail size={24} />
         </SocialLink>
       </SocialLinks>
