@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/MaerdlinaPortfolio/static/js/main.c00bb6d9.js",
+    "main.js": "/MaerdlinaPortfolio/static/js/main.d41a600b.js",
     "index.html": "/MaerdlinaPortfolio/index.html",
-    "main.c00bb6d9.js.map": "/MaerdlinaPortfolio/static/js/main.c00bb6d9.js.map"
+    "main.d41a600b.js.map": "/MaerdlinaPortfolio/static/js/main.d41a600b.js.map"
   },
   "entrypoints": [
-    "static/js/main.c00bb6d9.js"
+    "static/js/main.d41a600b.js"
   ]
 }
